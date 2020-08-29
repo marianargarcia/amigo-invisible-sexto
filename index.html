@@ -15,7 +15,7 @@
 
     <div>
 
-        <div class="course-top-header" onclick="showActions()">
+        <div class="course-top-header">
             <span>6to grado</span>
         </div>
 
@@ -58,28 +58,6 @@
 
     </div>
 
-
-    <div class="data-container hidden" id="dataContainer">
-        <div class="card" id="dataCard">
-            <h3 class="data-container__title" onclick="toggleElement('dataCard')">Datos guardados en la DB</h3>
-
-            <ol id="list"></ol>
-        </div>
-
-        <div class="card" id="actionsCard">
-            <h3 class="data-container__title" onclick="toggleElement('actionsCard')">Acciones</h3>
-
-            <div class="actions actions__container">
-
-                <button onclick="generateData()" class="button red">Generar Datos</button>
-
-                <button onclick="console.log(participants)" class="button green">Imprimir participantes</button>
-            </div>
-
-        </div>
-
-    </div>
-
     <!-- Firebase links -->
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.0/firebase-database.js"></script>
@@ -87,13 +65,13 @@
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyARmqHlLuG-_fkLHiHk0xsOja6yEl9KkWc",
-            authDomain: "testing-978ac.firebaseapp.com",
-            databaseURL: "https://testing-978ac.firebaseio.com",
-            projectId: "testing-978ac",
-            storageBucket: "testing-978ac.appspot.com",
-            messagingSenderId: "489374231517",
-            appId: "1:489374231517:web:233fb415176677a18f2434"
+            apiKey: "AIzaSyAfM3kYTCYw0Odu3wYwThGO00iTld9wVkU",
+            authDomain: "amigo-invisible-23e4a.firebaseapp.com",
+            databaseURL: "https://amigo-invisible-23e4a.firebaseio.com",
+            projectId: "amigo-invisible-23e4a",
+            storageBucket: "amigo-invisible-23e4a.appspot.com",
+            messagingSenderId: "49358122286",
+            appId: "1:49358122286:web:44abfcf0d734e5616c1ebf"
         };
     </script>
 

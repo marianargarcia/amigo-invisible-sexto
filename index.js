@@ -15,15 +15,15 @@ let resultLabel;
 function startDatabaseConnection() {
     firebase.initializeApp(firebaseConfig);
 
-    database = firebase.database().ref('personas');
+    database = firebase.database().ref('sexto');
 
     database.on('value', function (snapshot) {
         console.warn("Database was updated. Refresh data.")
-        parseDataToList(snapshot.val());
+        parseData(snapshot.val());
     });
 }
 
-function parseDataToList(json) {
+function parseData(json) {
     participants = [];
 
     for (key in json) {
@@ -86,19 +86,6 @@ function getInvisibleFriend() {
     }
 }
 
-// Remove all data and then generate test objects.
-function generateData() {
-    database.remove();
-
-    const names = ["Gonzalo", "Agustina", "Mariana", "Daniel", "Susana", "Martin", "Lulu", "Marcela", "Flavio"];
-
-    names.forEach(name => {
-        let participant = new Participant(null, name, "", false);
-        save(participant);
-    })
-}
-
-
 function save(participant) {
     database.push().set(participant)
         .then(function (snapshot) {
@@ -115,29 +102,4 @@ function update(participant, friend) {
     updates[friend.id] = friend;
     //
     return database.update(updates);
-}
-
-
-// Functions to help in the development. Will be removed 
-// 
-//
-function showList(participants) {
-
-    let list = document.getElementById("list");
-    list.innerHTML = "";
-
-    participants.forEach(item => {
-        let listItem = document.createElement('li');
-        listItem.innerHTML = `${item.name} - Friend: ${item.friend} - Selected: ${item.isSelected}`;
-        list.appendChild(listItem);
-    })
-}
-
-function showActions() {
-    document.getElementById("dataContainer").style.display = document.getElementById("dataContainer").style.display == 'none' || document.getElementById("dataContainer").style.display == "" ? 'flex' : 'none';
-    showList(participants);
-}
-
-function toggleElement(elementId) {
-    document.getElementById(elementId).style.opacity = document.getElementById(elementId).style.opacity == "" || document.getElementById(elementId).style.opacity == 1 ? 0 : 1;
 }
